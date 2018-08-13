@@ -3,6 +3,7 @@ import { notification } from 'antd';
 import { routerRedux } from 'dva/router';
 import store from '../index';
 import { getSessionToken, getLogged, getCurrentUser } from './storage';
+import { appId } from '../config';
 
 const codeMessage = {
   101: '无效的用户名/密码',
@@ -68,7 +69,7 @@ export default function request(url, options) {
     newOptions.headers = {
       Accept: 'application/json',
       'Content-Type': 'application/json; charset=utf-8',
-      'X-Parse-Application-Id': 'bee',
+      'X-Parse-Application-Id': appId,
       ...newOptions.headers,
     };
     if (requireSessionToken) {
@@ -85,7 +86,7 @@ export default function request(url, options) {
       newOptions.headers = {
         Accept: 'application/json',
         'Content-Type': 'application/json; charset=utf-8',
-        'X-Parse-Application-Id': 'bee',
+        'X-Parse-Application-Id': appId,
         ...newOptions.headers,
       };
       // const exemptSessionToken = (url.indexOf('/functions/SmsSend') > 0);
@@ -112,7 +113,7 @@ export default function request(url, options) {
       newOptions.headers = {
         Accept: 'application/json',
         'Content-Type': 'multipart/form-data',
-        'X-Parse-Application-Id': 'bee',
+        'X-Parse-Application-Id': appId,
         // 'X-Parse-Session-Token': localStorage.token,
         'X-Parse-Session-Token': getSessionToken(),
         ...newOptions.headers,

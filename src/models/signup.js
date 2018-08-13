@@ -9,7 +9,7 @@ export default {
     res: [],
     userValidating: [],
     existUsername: [],
-    existEmail: [],
+    existEmail: undefined,
     existMobile: [],
   },
 

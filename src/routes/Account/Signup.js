@@ -144,8 +144,13 @@ export default class Signup extends Component {
             // payload: { email: value },
             payload: { where: { email: { $regex: `^${value}$`, $options: 'i' } } },
           }).then(() => {
-            if (this.props.existEmail.results.length > 0) {
-              callback([new Error(rule.message)]);
+            const { existEmail } = this.props;
+            if (existEmail.results !== undefined) {
+              if (existEmail.results.length > 0) {
+                callback([new Error(rule.message)]);
+              } else {
+                callback();
+              }
             } else {
               callback();
             }
@@ -157,8 +162,13 @@ export default class Signup extends Component {
             // payload: { mobile: value },
             payload: { where: { mobile: value } },
           }).then(() => {
-            if (this.props.existMobile.results.length > 0) {
-              callback([new Error(rule.message)]);
+            const { existMobile } = this.props;
+            if (existMobile.results !== undefined) {
+              if (existMobile.results.length > 0) {
+                callback([new Error(rule.message)]);
+              } else {
+                callback();
+              }
             } else {
               callback();
             }

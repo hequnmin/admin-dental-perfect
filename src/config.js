@@ -4,16 +4,17 @@
 
 module.exports = {
   appName: 'Dental Perfect',
-  appId: 'bee',
+  appId: 'dental-perfect',
   copyRight: {
     title: ' 2018 品清科技体验技术部出品',
     links: '',
   },
 
   // 图片目录
+  imageUrl: 'http://localhost:1338/dental-perfect/files/dental-perfect/',
   // imageUrl: 'http://localhost:1338/parse/files/bee/',
   // imageUrl: 'http://becheer.com:1338/parse/files/bee/',
-  imageUrl: 'https://api.becheer.com.cn/parse/files/bee/',
+  // imageUrl: 'https://api.becheer.com.cn/parse/files/bee/',
   imageRootKey: '$ImageRoot$',
   imageRootReg: /\$ImageRoot\$/g,
 
