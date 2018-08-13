@@ -15,6 +15,7 @@ export default class BasicProfile extends Component {
   state = {
     loading: true,
   }
+
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch({

@@ -53,6 +53,7 @@ export default class Step1 extends React.PureComponent {
       }
     });
   };
+
   render() {
     const { form, email } = this.props;
     const { getFieldDecorator } = form;

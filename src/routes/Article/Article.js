@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'dva';
-import { Link, routerRedux } from 'dva/router';
-import { Card, Form, Input, Button, Icon } from 'antd';
+import { Card, Form, Input, Button } from 'antd';
 import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 import FooterToolbar from '../../components/FooterToolbar';
 

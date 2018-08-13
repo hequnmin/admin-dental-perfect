@@ -205,6 +205,7 @@ export default class Signup extends Component {
     e.preventDefault();
     this.props.form.validateFields({ force: true }, (err, values) => {
       if (err === null || !err) {
+// eslint-disable-next-line no-param-reassign
         delete values.confirm;
         const password = md5Hash(values.password);
         this.props.dispatch({

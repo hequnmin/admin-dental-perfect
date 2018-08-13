@@ -36,6 +36,7 @@ export default class Step2 extends React.PureComponent {
       });
     }
   }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.validating.results !== undefined && nextProps.validating.results.length > 0) {
       this.setState({

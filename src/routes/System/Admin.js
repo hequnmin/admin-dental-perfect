@@ -19,6 +19,7 @@ export default class Admin extends PureComponent {
       fetching: false,
     },
   };
+
   componentWillMount() {
     this.handleQueryUser({});
     this.handleQueryRole({});
@@ -271,8 +272,8 @@ export default class Admin extends PureComponent {
                     <Form.Item
                       wrapperCol={{ span: 12, offset: 12 }}
                     >
-                      <Button type="default" htmlType="button" className={styles.button} onClick={e => this.handleCancel(e)} >取消</Button>
-                      <Button type="primary" htmlType="button" className={styles.button} onClick={e => this.handleOK(e)} loading={loading} >保存</Button>
+                      <Button type="default" htmlType="button" className={styles.button} onClick={e => this.handleCancel(e)}>取消</Button>
+                      <Button type="primary" htmlType="button" className={styles.button} onClick={e => this.handleOK(e)} loading={loading}>保存</Button>
                     </Form.Item>
                   </Form>
                 </Card>

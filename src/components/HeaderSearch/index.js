@@ -13,6 +13,7 @@ export default class HeaderSearch extends PureComponent {
     placeholder: '',
     dataSource: [],
   };
+
   static propTypes = {
     className: PropTypes.string,
     placeholder: PropTypes.string,
@@ -21,13 +22,16 @@ export default class HeaderSearch extends PureComponent {
     defaultActiveFirstOption: PropTypes.bool,
     dataSource: PropTypes.array,
   };
+
   state = {
     searchMode: false,
     value: '',
   };
+
   componentWillUnmount() {
     clearTimeout(this.timeout);
   }
+
   onKeyDown = (e) => {
     if (e.key === 'Enter') {
       this.timeout = setTimeout(() => {
@@ -35,12 +39,14 @@ export default class HeaderSearch extends PureComponent {
       }, 0);
     }
   }
+
   onChange = (value) => {
     this.setState({ value });
     if (this.props.onChange) {
       this.props.onChange();
     }
   }
+
   enterSearchMode = () => {
     this.setState({ searchMode: true }, () => {
       if (this.state.searchMode) {
@@ -48,12 +54,14 @@ export default class HeaderSearch extends PureComponent {
       }
     });
   }
+
   leaveSearchMode = () => {
     this.setState({
       searchMode: false,
       value: '',
     });
   }
+
   render() {
     const { className, placeholder, ...restProps } = this.props;
     const inputClass = classNames(styles.input, {

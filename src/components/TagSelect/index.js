@@ -23,6 +23,7 @@ class TagSelect extends Component {
     expand: false,
     value: this.props.value || this.props.defaultValue || [],
   };
+
   componentWillReceiveProps(nextProps) {
     if ('value' in nextProps && nextProps.value) {
       this.setState({ value: nextProps.value });
@@ -69,8 +70,9 @@ class TagSelect extends Component {
   }
 
   handleExpand = () => {
+    const { expand } = this.state;
     this.setState({
-      expand: !this.state.expand,
+      expand: !expand,
     });
   }
 

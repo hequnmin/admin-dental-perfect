@@ -99,10 +99,12 @@ export default class BecLayout extends React.PureComponent {
     location: PropTypes.object,
     breadcrumbNameMap: PropTypes.object,
   };
+
   state = {
     isMobile,
     noticeCount: 0,
   };
+
   getChildContext() {
     const { location, routerData } = this.props;
     const menuData = getMenuData();
@@ -114,6 +116,7 @@ export default class BecLayout extends React.PureComponent {
       breadcrumbNameMap: getBreadcrumbNameMap(menuData, routerData),
     };
   }
+
   componentDidMount() {
     enquireScreen((mobile) => {
       this.setState({
@@ -124,6 +127,7 @@ export default class BecLayout extends React.PureComponent {
       type: 'account/fetchCurrent',
     });
   }
+
   getPageTitle() {
     const { routerData, location } = this.props;
     const { pathname } = location;
@@ -134,6 +138,7 @@ export default class BecLayout extends React.PureComponent {
     }
     return title;
   }
+
   getBashRedirect = () => {
     // According to the url parameter to redirect
     // 这里是重定向的,重定向到 url 的 redirect 参数所示地址
@@ -160,6 +165,7 @@ export default class BecLayout extends React.PureComponent {
       payload: collapsed,
     });
   };
+
   handleNoticeClear = (type) => {
     const { notices } = this.props;
     notices.filter(item => item.type === type).forEach((item) => {
@@ -179,6 +185,7 @@ export default class BecLayout extends React.PureComponent {
       payload: type,
     });
   };
+
   handleMenuClick = ({ key }) => {
     if (key === 'personalCenter') {
       this.props.dispatch(routerRedux.push('/dashboard/workspace'));
@@ -200,9 +207,11 @@ export default class BecLayout extends React.PureComponent {
       });
     }
   };
+
   handleAdminClick = () => {
     this.props.dispatch(routerRedux.push('/system/admin'));
   };
+
   handleNoticeVisibleChange = (visible) => {
     if (visible) {
       const currentUser = getCurrentUser();
@@ -215,6 +224,7 @@ export default class BecLayout extends React.PureComponent {
       });
     }
   };
+
   handleItemClick = (item) => {
     this.props.dispatch({
       type: 'account/noticeRead',

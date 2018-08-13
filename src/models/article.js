@@ -1,4 +1,4 @@
-import queryString from 'query-string';
+import qs from 'qs';
 import { getArticle, postArticle } from '../services/article';
 
 export default {
@@ -62,7 +62,7 @@ export default {
   subscriptions: {
     setup({ dispatch, history }) {
       return history.listen(({ pathname, search }) => {
-        const query = queryString.parse(search);
+        const query = qs.parse(search);
         if (pathname === '/article/articles') {
           dispatch({ type: 'fetchArticles', payload: query });
         }

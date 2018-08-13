@@ -29,7 +29,8 @@ export default class notices extends PureComponent {
     noticeCount: 0,
     newCount: 0,
     needCount: 0,
-  }
+  };
+
   componentDidMount() {
     const { dispatch } = this.props;
     const parsedata = {
@@ -46,8 +47,10 @@ export default class notices extends PureComponent {
         ...parsedata,
       },
     }).then(() => {
+      const { noticeCount } = this.state;
+      const { pageSize } = this.state.pagination;
       this.setState({
-        noticeCount: this.state.noticeCount + this.state.pagination.pageSize,
+        noticeCount: noticeCount + pageSize,
       });
     });
     dispatch({
@@ -59,8 +62,10 @@ export default class notices extends PureComponent {
         ...parsedata,
       },
     }).then(() => {
+      const { newCount } = this.state;
+      const { pageSize } = this.state.pagination;
       this.setState({
-        newCount: this.state.newCount + this.state.pagination.pageSize,
+        newCount: newCount + pageSize,
       });
     });
     dispatch({
@@ -72,8 +77,10 @@ export default class notices extends PureComponent {
         ...parsedata,
       },
     }).then(() => {
+      const { needCount } = this.state;
+      const { pageSize } = this.state.pagination;
       this.setState({
-        needCount: this.state.needCount + this.state.pagination.pageSize,
+        needCount: needCount + pageSize,
       });
     });
   }
@@ -118,9 +125,11 @@ export default class notices extends PureComponent {
         ...parsedata,
       },
     }).then(() => {
+      const { noticeCount } = this.state;
+      const { pageSize } = this.state.pagination;
       this.setState({
         noticeLoading: false,
-        noticeCount: this.state.noticeCount + this.state.pagination.pageSize,
+        noticeCount: noticeCount + pageSize,
       });
     });
   }
@@ -152,9 +161,11 @@ export default class notices extends PureComponent {
         ...parsedata,
       },
     }).then(() => {
+      const { newCount } = this.state;
+      const { pageSize } = this.state.pagination;
       this.setState({
         newsLoading: false,
-        newCount: this.state.newCount + this.state.pagination.pageSize,
+        newCount: newCount + pageSize,
       });
     });
   }
@@ -186,9 +197,11 @@ export default class notices extends PureComponent {
         ...parsedata,
       },
     }).then(() => {
+      const { needCount } = this.state;
+      const { pageSize } = this.state.pagination;
       this.setState({
         needLoading: false,
-        needCount: this.state.needCount + this.state.pagination.pageSize,
+        needCount: needCount + pageSize,
       });
     });
   }

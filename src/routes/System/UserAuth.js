@@ -16,6 +16,7 @@ const { TextArea } = Input;
 export default class BasicForms extends PureComponent {
   state = {
   };
+
   componentDidMount() {
     // const id = localStorage.getItem('currentUserId');
     const { dispatch } = this.props;
@@ -52,6 +53,7 @@ export default class BasicForms extends PureComponent {
       },
     });
   }
+
   handleSubmit = (e, id) => {
     const { dispatch } = this.props;
     e.preventDefault();
@@ -91,6 +93,7 @@ export default class BasicForms extends PureComponent {
       });
     }
   }
+
   render() {
     const { account: { user, address, auth } } = this.props;
     const { getFieldDecorator } = this.props.form;

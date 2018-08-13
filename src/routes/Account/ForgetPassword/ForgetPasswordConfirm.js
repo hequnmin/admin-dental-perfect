@@ -52,6 +52,7 @@ export default class ForgetPasswordConfirm extends React.PureComponent {
       }
     }
   }
+
   componentWillReceiveProps(nextProps) {
     if (this.props.forgetpassword.requestResult !== nextProps.forgetpassword.requestResult) {
       this.setState({

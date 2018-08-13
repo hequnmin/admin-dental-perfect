@@ -38,6 +38,7 @@ export default class SiderMenu extends PureComponent {
       openKeys: this.getDefaultCollapsedSubMenus(props),
     };
   }
+
   componentWillReceiveProps(nextProps) {
     if (JSON.stringify(nextProps.menuData) !== JSON.stringify(this.props.menuData)) {
       this.menus = nextProps.menuData;
@@ -49,6 +50,7 @@ export default class SiderMenu extends PureComponent {
       });
     }
   }
+
   /**
    * Convert pathname to openKeys
    * /list/search/articles = > ['list','/list/search']
@@ -62,6 +64,7 @@ export default class SiderMenu extends PureComponent {
       })
       .filter(item => item);
   }
+
   /**
    * Recursively flatten the data
    * [{path:string},{path:string}] => {path,path2}
@@ -79,6 +82,7 @@ export default class SiderMenu extends PureComponent {
     }
     return keys;
   }
+
   /**
    * 判断是否是http链接.返回 Link 或 a
    * Judge whether it is http link.return a or Link
@@ -115,6 +119,7 @@ export default class SiderMenu extends PureComponent {
       </Link>
     );
   };
+
   /**
    * get SubMenu or Item
    */
@@ -148,6 +153,7 @@ export default class SiderMenu extends PureComponent {
       );
     }
   };
+
   /**
    * 获得菜单子节点
    * @memberof SiderMenu
@@ -165,6 +171,7 @@ export default class SiderMenu extends PureComponent {
       })
       .filter(item => item);
   };
+
   // Get the currently selected menu
   getSelectedMenuKeys = () => {
     const { location: { pathname } } = this.props;
@@ -172,6 +179,7 @@ export default class SiderMenu extends PureComponent {
       getMeunMatcheys(this.flatMenuKeys, itemPath).pop(),
     );
   };
+
   // conversion Path
   // 转化路径
   conversionPath = (path) => {
@@ -181,6 +189,7 @@ export default class SiderMenu extends PureComponent {
       return `/${path || ''}`.replace(/\/+/g, '/');
     }
   };
+
   // permission to check
   checkPermissionItem = (authority, ItemDom) => {
     if (this.props.Authorized && this.props.Authorized.check) {
@@ -189,12 +198,14 @@ export default class SiderMenu extends PureComponent {
     }
     return ItemDom;
   };
+
   isMainMenu = (key) => {
     return this.menus.some(
       item =>
         key && (item.key === key || item.path === key),
     );
   }
+
   handleOpenChange = (openKeys) => {
     const lastOpenKey = openKeys[openKeys.length - 1];
     const moreThanOne = openKeys.filter(openKey => this.isMainMenu(openKey)).length > 1;
@@ -202,6 +213,7 @@ export default class SiderMenu extends PureComponent {
       openKeys: moreThanOne ? [lastOpenKey] : [...openKeys],
     });
   };
+
   render() {
     const { logo, collapsed, onCollapse } = this.props;
     const { openKeys } = this.state;

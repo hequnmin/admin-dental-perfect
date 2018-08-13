@@ -32,6 +32,7 @@ class AccountLayout extends React.PureComponent {
     }
     return title;
   }
+
   render() {
     const { routerData, match } = this.props;
     return (

@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'dva';
 import { Card, Row, Table, Button, Icon } from 'antd';
 import { Link, routerRedux } from 'dva/router';
-import queryString from 'query-string';
+import qs from 'qs';
 import styles from './Articles.less';
 
 @connect(({ loading, article }) => ({
@@ -18,7 +18,7 @@ export default class Articles extends PureComponent {
     // let { query } = article.articles;
     // const { limit } = query;
     const query = { limit: 10, skip: (page - 1) * 10, count: true };
-    const search = queryString.stringify(query);
+    const search = qs.stringify(query);
     const location = search ? `/article/articles?${search}` : '/article/articles';
     dispatch(routerRedux.push(location));
   };

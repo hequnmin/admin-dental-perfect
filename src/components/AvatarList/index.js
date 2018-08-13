@@ -26,7 +26,7 @@ const Item = ({ src, size, tips, onClick = (() => {}) }) => {
   });
 
   return (
-    <li className={cls} onClick={onClick} >
+    <li className={cls} onClick={onClick}>
       {
         tips ? (
           <Tooltip title={tips}>

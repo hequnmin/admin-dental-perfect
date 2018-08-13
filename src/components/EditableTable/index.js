@@ -2,8 +2,11 @@ import React from 'react';
 import { Table, Input, InputNumber, Divider, Popconfirm } from 'antd';
 import styles from './index.less';
 
-// eslint-disable-next-line no-unused-vars
 export default class EditEditableTable extends React.PureComponent {
+  index = 0;
+
+  cacheOriginData = {};
+
   state={
     loading: this.props.loading,
     data: this.props.dataSource,
@@ -20,9 +23,6 @@ export default class EditEditableTable extends React.PureComponent {
   getRowByKey = (key, newData) => {
     return (newData || this.state.data).filter(item => item.key === key)[0];
   };
-
-  index = 0;
-  cacheOriginData = {};
 
   toggleEditable = (e, key) => {
     e.preventDefault();
@@ -115,6 +115,7 @@ export default class EditEditableTable extends React.PureComponent {
 
     if (columns) {
       columns.map((col) => {
+// eslint-disable-next-line no-param-reassign
         col.render = (text, record) => {
           if (record.editable && col.editable) {
             if (col.type === 'number') {

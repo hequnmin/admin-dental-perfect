@@ -1,3 +1,4 @@
+/* eslint-disable react/no-access-state-in-setstate */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Form, Tabs } from 'antd';
@@ -9,28 +10,32 @@ import styles from './index.less';
 
 @Form.create()
 class Login extends Component {
-  static defaultProps = {
-    className: '',
-    defaultActiveKey: '',
-    onTabChange: () => {},
-    onSubmit: () => {},
-  };
   static propTypes = {
     className: PropTypes.string,
     defaultActiveKey: PropTypes.string,
     onTabChange: PropTypes.func,
     onSubmit: PropTypes.func,
   };
+
   static childContextTypes = {
     tabUtil: PropTypes.object,
     form: PropTypes.object,
     updateActive: PropTypes.func,
   };
+
+  static defaultProps = {
+    className: '',
+    defaultActiveKey: '',
+    onTabChange: () => {},
+    onSubmit: () => {},
+  };
+
   state = {
     type: this.props.defaultActiveKey,
     tabs: [],
     active: {},
   };
+
   getChildContext() {
     return {
       tabUtil: {
@@ -59,12 +64,14 @@ class Login extends Component {
       },
     };
   }
+
   onSwitch = (type) => {
     this.setState({
       type,
     });
     this.props.onTabChange(type);
   }
+
   handleSubmit = (e) => {
     e.preventDefault();
     const { active, type } = this.state;
@@ -75,6 +82,7 @@ class Login extends Component {
       }
     );
   }
+
   render() {
     const { className, children } = this.props;
     const { type, tabs } = this.state;

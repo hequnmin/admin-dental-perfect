@@ -13,6 +13,7 @@ export default class ReceivePasswordReset extends React.PureComponent {
     const { dispatch, location } = this.props;
     dispatch(routerRedux.push(`/account/forgetpassword/confirm${location.search}`));
   }
+
   render() {
     const actions = (
       <div className={styles.actions}>
