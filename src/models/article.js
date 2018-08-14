@@ -48,11 +48,11 @@ export default {
         article: action.payload,
       };
     },
-    appendArticel(state, action) {
+    appendArticle(state, action) {
       return ({
         ...state,
-        articel: {
-          results: state.Articel.results.concat(action.payload),
+        article: {
+          results: state.Article.results.concat(action.payload),
           count: state.data.count + 1,
         },
       });

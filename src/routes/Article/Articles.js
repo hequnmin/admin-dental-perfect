@@ -55,6 +55,7 @@ export default class Articles extends PureComponent {
             dataSource={articles.results}
             rowKey="objectId"
             pagination={pagination}
+            loading={this.props.loading}
           />
         </Row>
       </Card>
