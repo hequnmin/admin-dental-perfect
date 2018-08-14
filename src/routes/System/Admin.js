@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'dva';
 import { Link } from 'dva/router';
-import { Card, Tabs, Icon, Radio, Input, List, Menu, Dropdown, Avatar, Tag, Button, Form, Select, Spin } from 'antd';
+import { Card, Tabs, Icon, Radio, Input, List, Menu, Dropdown, Avatar, Tag, Button, Form, Select, Spin, Modal } from 'antd';
 import styles from './Admin.less';
 
 @connect(({ user, role, loading }) => ({
@@ -227,11 +227,10 @@ export default class Admin extends PureComponent {
                 />
               </div>
               <Card bordered={false}>
-                <Card
-                  bordered={false}
-                  hoverable
-                  hidden={!creating}
-                  className={styles.createCard}
+                <Modal
+                  title="创建角色"
+                  visible={creating}
+                  onCancel={this.handleCancel}
                 >
                   <Form>
                     <Form.Item
@@ -269,14 +268,8 @@ export default class Admin extends PureComponent {
                         </Select>
                       )}
                     </Form.Item>
-                    <Form.Item
-                      wrapperCol={{ span: 12, offset: 12 }}
-                    >
-                      <Button type="default" htmlType="button" className={styles.button} onClick={e => this.handleCancel(e)}>取消</Button>
-                      <Button type="primary" htmlType="button" className={styles.button} onClick={e => this.handleOK(e)} loading={loading}>保存</Button>
-                    </Form.Item>
                   </Form>
-                </Card>
+                </Modal>
                 <List
                   size="large"
                   // rowKey="objectId"

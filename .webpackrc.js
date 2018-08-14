@@ -25,7 +25,7 @@ export default {
   proxy: {
     '/api': {
       changeOrigin: true,
-      target: 'https://parse-server-dental-perfect.herokuapp.com/',
+      target: 'http://localhost:1338/',
       pathRewrite: { '^/api': 'dental-perfect' },
       // target: 'http://becheer.com:1338/',
       // target: 'https://api.becheer.com.cn/',
@@ -33,7 +33,7 @@ export default {
     },
     '/mail': {
       changeOrigin: true,
-      target: 'https://parse-server-dental-perfect.herokuapp.com/',
+      target: 'http://localhost:1338/',
       pathRewrite: { '^/mail': 'dental-perfect/apps/dental-perfect' },
       // target: 'http://becheer.com:1338/',
       // target: 'https://api.becheer.com.cn/',
