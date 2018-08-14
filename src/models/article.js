@@ -62,7 +62,7 @@ export default {
   subscriptions: {
     setup({ dispatch, history }) {
       return history.listen(({ pathname, search }) => {
-        const query = qs.parse(search);
+        const query = qs.parse(search, { ignoreQueryPrefix: true });
         if (pathname === '/article/articles') {
           dispatch({ type: 'fetchArticles', payload: query });
         }

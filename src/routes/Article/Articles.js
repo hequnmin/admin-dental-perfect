@@ -37,7 +37,7 @@ export default class Articles extends PureComponent {
       showQuickJumper: true,
       pageSize: parseInt(query.limit, 0),
       total: articles === undefined ? 0 : articles.count,
-      current: query && query.skip ? parseInt(query.skip / 2, 0) + 1 : 0,
+      current: query && query.skip ? parseInt(query.skip / query.limit, 0) + 1 : 0,
       onChange: this.handlePageChange,
     };
 
