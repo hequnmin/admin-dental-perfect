@@ -47,7 +47,7 @@ export default class Article extends React.PureComponent {
   };
 
   handleCancel = () => {
-    console.log('Cancel');
+    // console.log('Cancel');
   };
 
   render() {

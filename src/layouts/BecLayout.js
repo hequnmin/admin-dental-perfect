@@ -239,7 +239,7 @@ export default class BecLayout extends React.PureComponent {
 
   handleWebSocketData = (data) => {
     const result = JSON.parse(data);
-    console.log(result);
+    // console.log(result);
     if (result) {
       this.setState({ noticeCount: result.count });
     }
