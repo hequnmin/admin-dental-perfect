@@ -152,8 +152,7 @@ export default class BecLayout extends React.PureComponent {
     } else {
       const { routerData } = this.props;
       // get the first authorized route path in routerData
-      const authorizedPath = Object.keys(routerData).find(item =>
-        check(routerData[item].authority, item) && item !== '/');
+      const authorizedPath = Object.keys(routerData).find(item => check(routerData[item].authority, item) && item !== '/');
       return authorizedPath;
     }
     return redirect;
@@ -289,22 +288,18 @@ export default class BecLayout extends React.PureComponent {
           <Content style={{ margin: '24px 24px 0', height: '100%' }}>
             <Switch>
               {
-                redirectData.map(item =>
-                  <Redirect key={item.from} exact from={item.from} to={item.to} />
-                )
+                redirectData.map(item => <Redirect key={item.from} exact from={item.from} to={item.to} />)
               }
               {
-                getRoutes(match.path, routerData).map(item =>
-                  (
-                    <AuthorizedRoute
-                      key={item.key}
-                      path={item.path}
-                      component={item.component}
-                      exact={item.exact}
-                      authority={item.authority}
-                      redirectPath="/exception/403"
-                    />
-                  )
+                getRoutes(match.path, routerData).map(item => (
+                  <AuthorizedRoute
+                    key={item.key}
+                    path={item.path}
+                    component={item.component}
+                    exact={item.exact}
+                    authority={item.authority}
+                    redirectPath="/exception/403"
+                  />)
                 )
               }
               <Redirect exact from="/" to={bashRedirect} />

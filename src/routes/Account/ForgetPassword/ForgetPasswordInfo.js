@@ -103,4 +103,3 @@ export default class ForgetPasswordInfo extends React.PureComponent {
     );
   }
 }
-

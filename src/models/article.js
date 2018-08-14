@@ -19,8 +19,8 @@ export default {
   },
 
   effects: {
-    * trashArticle(_, {put}) {
-      yield put({type: 'emptyArticle'});
+    * trashArticle(_, { put }) {
+      yield put({ type: 'emptyArticle' });
     },
     * fetchArticles({ payload }, { call, put }) {
       const response = yield call(getArticles, payload);
@@ -30,15 +30,16 @@ export default {
       const response = yield call(getArticle, payload);
       yield put({ type: 'queryArticle', payload: { ...response } });
     },
-    * storeArticle({payload}, {call, put}) {
-      const response = yield call(postArticle, payload);
-      if (!response.error) {
-        yield put({type: 'appendArticle', payload: {...payload, ...response}});
-      }
+    * storeArticle({ payload }, { call }) {
+      yield call(postArticle, payload);
+      // const response = yield call(postArticle, payload);
+      // if (!response.error) {
+      //   yield put({type: 'appendArticle', payload: {...payload, ...response}});
+      // }
     },
-    * coverArticle({payload}, {call, put}) {
+    * coverArticle({ payload }, { call, put }) {
       const response = yield call(putArticle, payload);
-      yield put({type: 'resetArticle', payload: {...payload, ...response}});
+      yield put({ type: 'resetArticle', payload: { ...payload, ...response } });
     },
   },
 
@@ -65,7 +66,7 @@ export default {
       return ({
         ...state,
         article: {
-          results: state.Article.results.concat(action.payload),
+          results: state.articles.results.concat(action.payload),
           count: state.data.count + 1,
         },
       });
@@ -82,12 +83,11 @@ export default {
         if (pathname === '/article/article') {
           dispatch({ type: 'trashArticle' });
         }
-        if (pathname.indexOf('/article/article/') >= 0 ) {
-          const objectId = pathname.substring(pathname.lastIndexOf('/')+1);
-          dispatch({type: 'fetchArticle', payload: { objectId }});
+        if (pathname.indexOf('/article/article/') >= 0) {
+          const objectId = pathname.substring(pathname.lastIndexOf('/') + 1);
+          dispatch({ type: 'fetchArticle', payload: { objectId } });
         }
       });
     },
   },
 };
-

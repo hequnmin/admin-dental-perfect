@@ -7,7 +7,7 @@ import styles from './Articles.less';
 
 @connect(({ loading, article }) => ({
   loading: loading.models.article,
-  article,
+  articles: article.articles,
 }))
 export default class Articles extends PureComponent {
   state = {
@@ -24,7 +24,7 @@ export default class Articles extends PureComponent {
   };
 
   render() {
-    const { articles } = this.props.article;
+    const { articles } = this.props;
     const { query } = articles;
 
     const columns = [
@@ -38,7 +38,9 @@ export default class Articles extends PureComponent {
         width: '15%',
         render: val => (
           <span>
-            <Link className={styles.linkArticle} to={`/article/article/${val}`}>编辑</Link>
+            <Link className={styles.linkArticle} to={`/article/article/${val}`}>
+              编辑
+            </Link>
           </span>),
       },
     ];
@@ -58,7 +60,12 @@ export default class Articles extends PureComponent {
         titile="文章管理"
       >
         <Row>
-          <Button type="primary"><Link className={styles.createArticle} to="/article/article"><Icon type="plus" /> 发表文章</Link></Button>
+          <Button type="primary">
+            <Link className={styles.createArticle} to="/article/article">
+              <Icon type="plus" />
+              发表文章
+            </Link>
+          </Button>
         </Row>
         <Row>
           <Table

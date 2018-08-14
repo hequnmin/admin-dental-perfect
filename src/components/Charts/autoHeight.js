@@ -3,9 +3,7 @@ import React from 'react';
 
 function computeHeight(node) {
   const totalHeight = parseInt(getComputedStyle(node).height, 10);
-  const padding =
-    parseInt(getComputedStyle(node).paddingTop, 10) +
-    parseInt(getComputedStyle(node).paddingBottom, 10);
+  const padding = parseInt(getComputedStyle(node).paddingTop, 10) + parseInt(getComputedStyle(node).paddingBottom, 10);
   return totalHeight - padding;
 }
 

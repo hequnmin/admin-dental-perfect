@@ -115,7 +115,6 @@ export default class EditEditableTable extends React.PureComponent {
 
     if (columns) {
       columns.map((col) => {
-// eslint-disable-next-line no-param-reassign
         col.render = (text, record) => {
           if (record.editable && col.editable) {
             if (col.type === 'number') {

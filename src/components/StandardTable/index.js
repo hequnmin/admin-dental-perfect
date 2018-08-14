@@ -92,8 +92,7 @@ class StandardTable extends PureComponent {
                       <span style={{ fontWeight: 600 }}>
                         {item.render ? item.render(item.total) : item.total}
                       </span>
-                    </span>
-                    )
+                    </span>)
                   )
                 }
                 <a onClick={this.cleanSelectedKeys} style={{ marginLeft: 24 }}>清空</a>

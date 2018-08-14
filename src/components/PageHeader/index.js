@@ -55,13 +55,7 @@ export default class PageHeader extends PureComponent {
         {breadcrumbList.map(item => (
           <Breadcrumb.Item key={item.title}>
             {item.href
-              ? createElement(
-                  linkElement,
-                  {
-                    [linkElement === 'a' ? 'href' : 'to']: item.href,
-                  },
-                  item.title,
-                )
+              ? createElement(linkElement, { [linkElement === 'a' ? 'href' : 'to']: item.href }, item.title)
               : item.title}
           </Breadcrumb.Item>
         ))}
@@ -76,8 +70,7 @@ export default class PageHeader extends PureComponent {
     // Loop data mosaic routing
     const extraBreadcrumbItems = pathSnippets.map((url, index) => {
       const currentBreadcrumb = getBreadcrumb(breadcrumbNameMap, url);
-      const isLinkable =
-        index !== pathSnippets.length - 1 && currentBreadcrumb.component;
+      const isLinkable = index !== pathSnippets.length - 1 && currentBreadcrumb.component;
       return currentBreadcrumb.name && !currentBreadcrumb.hideInBreadcrumb ? (
         <Breadcrumb.Item key={url}>
           {createElement(
@@ -203,17 +196,16 @@ export default class PageHeader extends PureComponent {
             </div>
           </div>
         </div>
-        {tabList &&
-          tabList.length && (
-            <Tabs
-              className={styles.tabs}
-              {...activeKeyProps}
-              onChange={this.onChange}
-              tabBarExtraContent={tabBarExtraContent}
-            >
-              {tabList.map(item => <TabPane tab={item.tab} key={item.key} />)}
-            </Tabs>
-          )}
+        {tabList && tabList.length && (
+          <Tabs
+            className={styles.tabs}
+            {...activeKeyProps}
+            onChange={this.onChange}
+            tabBarExtraContent={tabBarExtraContent}
+          >
+            {tabList.map(item => <TabPane tab={item.tab} key={item.key} />)}
+          </Tabs>
+        )}
       </div>
     );
   }

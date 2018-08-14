@@ -177,8 +177,7 @@ export default class Radar extends Component {
                   </p>
                   <h6>{item.value}</h6>
                 </div>
-              </Col>
-           ))}
+              </Col>))}
           </Row>
         )}
       </div>

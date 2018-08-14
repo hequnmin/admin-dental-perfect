@@ -5,11 +5,7 @@ import classNames from 'classnames';
 import styles from './index.less';
 
 const AvatarList = ({ children, size, ...other }) => {
-  const childrenWithProps = React.Children.map(children, child =>
-    React.cloneElement(child, {
-      size,
-    })
-  );
+  const childrenWithProps = React.Children.map(children, child => React.cloneElement(child, { size }));
 
   return (
     <div {...other} className={styles.avatarList}>

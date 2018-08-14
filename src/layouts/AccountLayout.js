@@ -49,15 +49,13 @@ class AccountLayout extends React.PureComponent {
               <div className={styles.desc}>当前最流行的Web视觉设计及UI设计规范</div>
             </div>
             <Switch>
-              {getRoutes(match.path, routerData).map(item =>
-                (
-                  <Route
-                    key={item.key}
-                    path={item.path}
-                    component={item.component}
-                    exact={item.exact}
-                  />
-                )
+              {getRoutes(match.path, routerData).map(item => (
+                <Route
+                  key={item.key}
+                  path={item.path}
+                  component={item.component}
+                  exact={item.exact}
+                />)
               )}
               <Redirect exact from="/user" to="/user/login" />
             </Switch>
