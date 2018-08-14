@@ -7,7 +7,7 @@ import styles from './Articles.less';
 
 @connect(({ loading, article }) => ({
   loading: loading.models.article,
-  article,
+  articles: article.articles,
 }))
 export default class Articles extends PureComponent {
   state = {
@@ -24,12 +24,25 @@ export default class Articles extends PureComponent {
   };
 
   render() {
-    const { articles } = this.props.article;
+    const { articles } = this.props;
     const { query } = articles;
 
     const columns = [
       { title: '文章标题', dataIndex: 'title', key: 'title' },
-      { title: '文章内容', dataIndex: 'content', key: 'content' },
+      { title: '文章标题', dataIndex: 'subhead', key: 'subhead' },
+      { title: '文章摘要', dataIndex: 'summary', key: 'summary' },
+      {
+        title: '操作',
+        dataIndex: 'objectId',
+        key: 'objectId',
+        width: '15%',
+        render: val => (
+          <span>
+            <Link className={styles.linkArticle} to={`/article/article/${val}`}>
+              编辑
+            </Link>
+          </span>),
+      },
     ];
 
     const pagination = {
@@ -37,7 +50,7 @@ export default class Articles extends PureComponent {
       showQuickJumper: true,
       pageSize: parseInt(query.limit, 0),
       total: articles === undefined ? 0 : articles.count,
-      current: query && query.skip ? parseInt(query.skip / 2, 0) + 1 : 0,
+      current: query && query.skip ? parseInt(query.skip / query.limit, 0) + 1 : 0,
       onChange: this.handlePageChange,
     };
 
@@ -47,7 +60,12 @@ export default class Articles extends PureComponent {
         titile="文章管理"
       >
         <Row>
-          <Button type="primary"><Link className={styles.createArticle} to="/article/article"><Icon type="plus" /> 发表文章</Link></Button>
+          <Button type="primary">
+            <Link className={styles.createArticle} to="/article/article">
+              <Icon type="plus" />
+              发表文章
+            </Link>
+          </Button>
         </Row>
         <Row>
           <Table

@@ -40,4 +40,3 @@ export default class VerifyEmail extends React.PureComponent {
     );
   }
 }
-

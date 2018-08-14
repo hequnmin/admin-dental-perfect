@@ -97,8 +97,7 @@ export default class BasicProfile extends Component {
                   </Row>
                 </div>
               </div>
-            </PageHeaderLayout>
-)}
+            </PageHeaderLayout>)}
       </div>
     );
   }

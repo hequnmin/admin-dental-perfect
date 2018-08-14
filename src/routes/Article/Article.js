@@ -6,7 +6,7 @@ import FooterToolbar from '../../components/FooterToolbar';
 
 @connect(({ loading, article }) => ({
   loading: loading.models.article,
-  article,
+  article: article.article,
 }))
 @Form.create()
 export default class Article extends React.PureComponent {
@@ -20,14 +20,14 @@ export default class Article extends React.PureComponent {
       if (err === null || !err) {
         const { dispatch } = this.props;
 
-        const article = {
+        let article = {
           title: values.title,
           subhead: values.subhead,
           summary: values.summary,
           content: values.content,
         };
         if (values.objectId) {
-
+          article = { ...article, objectId: values.objectId };
           dispatch({
             type: 'article/coverArticle',
             payload: article,
@@ -39,7 +39,7 @@ export default class Article extends React.PureComponent {
             type: 'article/storeArticle',
             payload: article,
           }).then(() => {
-              this.props.history.goBack();
+            this.props.history.goBack();
           });
         }
       }
@@ -47,7 +47,7 @@ export default class Article extends React.PureComponent {
   };
 
   handleCancel = () => {
-    // console.log('Cancel');
+    this.props.history.goBack();
   };
 
   render() {
@@ -56,8 +56,17 @@ export default class Article extends React.PureComponent {
 
     return (
       <PageHeaderLayout>
-        <Card>
+        <Card
+          loading={this.props.loading}
+        >
           <Form>
+            <Form.Item>
+              {getFieldDecorator('objectId', {
+                initialValue: article ? article.objectId || '' : '',
+              })(
+                <Input hidden />
+              )}
+            </Form.Item>
             <Form.Item
               label="标题"
             >
@@ -80,6 +89,18 @@ export default class Article extends React.PureComponent {
                 ],
               })(
                 <Input placeholder="起一个副标题..." />
+              )}
+            </Form.Item>
+            <Form.Item
+              label="摘要"
+            >
+              {getFieldDecorator('summary', {
+                initialValue: article ? article.summary || '' : '',
+                rules: [
+                  { required: true, message: '请输入摘要！' },
+                ],
+              })(
+                <Input placeholder="编辑摘要..." />
               )}
             </Form.Item>
             <Form.Item

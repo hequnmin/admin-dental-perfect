@@ -6,4 +6,3 @@ export async function getUser(params) {
     method: 'GET',
   });
 }
-

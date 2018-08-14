@@ -20,11 +20,7 @@ export default ({ className, linkElement = 'a', type, title, desc, img, actions,
         <div className={styles.desc}>{desc || config[pageType].desc}</div>
         <div className={styles.actions}>
           {
-            actions ||
-              createElement(linkElement, {
-                to: '/',
-                href: '/',
-              }, <Button type="primary">返回首页</Button>)
+            actions || createElement(linkElement, { to: '/', href: '/' }, <Button type="primary">返回首页</Button>)
           }
         </div>
       </div>

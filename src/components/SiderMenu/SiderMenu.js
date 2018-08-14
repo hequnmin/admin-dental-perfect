@@ -106,13 +106,7 @@ export default class SiderMenu extends PureComponent {
         to={itemPath}
         target={target}
         replace={itemPath === this.props.location.pathname}
-        onClick={
-          this.props.isMobile
-            ? () => {
-                this.props.onCollapse(true);
-              }
-            : undefined
-        }
+        onClick={this.props.isMobile ? () => { this.props.onCollapse(true); } : undefined}
       >
         {icon}
         <span>{name}</span>
@@ -136,9 +130,7 @@ export default class SiderMenu extends PureComponent {
                   {getIcon(item.icon)}
                   <span>{item.name}</span>
                 </span>
-              ) : (
-                  item.name
-                )
+              ) : (item.name)
             }
             key={item.path}
           >
@@ -175,9 +167,7 @@ export default class SiderMenu extends PureComponent {
   // Get the currently selected menu
   getSelectedMenuKeys = () => {
     const { location: { pathname } } = this.props;
-    return urlToList(pathname).map(itemPath =>
-      getMeunMatcheys(this.flatMenuKeys, itemPath).pop(),
-    );
+    return urlToList(pathname).map(itemPath => getMeunMatcheys(this.flatMenuKeys, itemPath).pop());
   };
 
   // conversion Path
@@ -200,11 +190,8 @@ export default class SiderMenu extends PureComponent {
   };
 
   isMainMenu = (key) => {
-    return this.menus.some(
-      item =>
-        key && (item.key === key || item.path === key),
-    );
-  }
+    return this.menus.some(item => key && (item.key === key || item.path === key));
+  };
 
   handleOpenChange = (openKeys) => {
     const lastOpenKey = openKeys[openKeys.length - 1];

@@ -162,93 +162,91 @@ export default class BasicForms extends PureComponent {
                   <List
                     dataSource={address.results}
                     renderItem={item => (
-                            (
+                      <div>
+                        {item.isDefault === 1 ? (
+                          <div style={{ marginBottom: 16 }}>
+                            <Card>
                               <div>
-                                {item.isDefault === 1 ? (
-                                  <div style={{ marginBottom: 16 }}>
-                                    <Card>
-                                      <div>
-                                        <div style={{ fontWeight: 450 }}>
-                                          <div style={{ fontWeight: 600 }}><Icon type="environment-o" />收货地址 <Tag color="red">默认</Tag></div>
-                                          {item.province === undefined ? '' : item.province} {item.city === undefined ? '' : item.city} {item.area === undefined ? '' : item.area}
-                                        </div>
-                                        <div style={{ fontWeight: 450, color: '#8e8989' }}>{item.address === undefined ? '' : item.address}</div>
-                                        <br />
-                                      </div>
-                                      <div>
-                                        {item.realName === undefined ? '' : (
-                                          <div>
-                                            <div style={{ fontWeight: 600 }}><Icon type="user" />收货人</div>
-                                            <div style={{ fontWeight: 450, color: '#8e8989' }}>
-                                              {item.realName}
-                                            </div>
-                                          </div>
-                                        )}
-                                        <br />
-                                      </div>
-                                      <div>
-                                        {item.mobile === undefined ? '' : (
-                                          <div>
-                                            <div style={{ fontWeight: 600 }}><Icon type="mobile" />收货人电话</div>
-                                            <div style={{ fontWeight: 450, color: '#8e8989' }}>
-                                              {item.mobile}
-                                            </div>
-                                          </div>
-                                        )}
-                                        <br />
-                                      </div>
-                                    </Card>
-                                  </div>
-                                ) : ''}
+                                <div style={{ fontWeight: 450 }}>
+                                  <div style={{ fontWeight: 600 }}><Icon type="environment-o" />收货地址 <Tag color="red">默认</Tag></div>
+                                  {item.province === undefined ? '' : item.province} {item.city === undefined ? '' : item.city} {item.area === undefined ? '' : item.area}
+                                </div>
+                                <div style={{ fontWeight: 450, color: '#8e8989' }}>{item.address === undefined ? '' : item.address}</div>
+                                <br />
                               </div>
-                            ))}
+                              <div>
+                                {item.realName === undefined ? '' : (
+                                  <div>
+                                    <div style={{ fontWeight: 600 }}><Icon type="user" />收货人</div>
+                                    <div style={{ fontWeight: 450, color: '#8e8989' }}>
+                                      {item.realName}
+                                    </div>
+                                  </div>
+                                )}
+                                <br />
+                              </div>
+                              <div>
+                                {item.mobile === undefined ? '' : (
+                                  <div>
+                                    <div style={{ fontWeight: 600 }}><Icon type="mobile" />收货人电话</div>
+                                    <div style={{ fontWeight: 450, color: '#8e8989' }}>
+                                      {item.mobile}
+                                    </div>
+                                  </div>
+                                )}
+                                <br />
+                              </div>
+                            </Card>
+                          </div>
+                        ) : ''}
+                      </div>
+                    )}
                   />
                   <List
                     dataSource={address.results}
                     renderItem={item => (
-                            (
+                      <div>
+                        {item.isDefault === 0 ? (
+                          <div style={{ marginBottom: 16 }}>
+                            <Card>
                               <div>
-                                {item.isDefault === 0 ? (
-                                  <div style={{ marginBottom: 16 }}>
-                                    <Card>
-                                      <div>
-                                        <div style={{ fontWeight: 450 }}>
-                                          <div style={{ fontWeight: 600 }}><Icon type="environment-o" />收货地址</div>
-                                          {item.province === undefined ? '' : item.province} {item.city === undefined ? '' : item.city} {item.area === undefined ? '' : item.area}
-                                        </div>
-                                        <div style={{ fontWeight: 450, color: '#8e8989' }}>{item.address === undefined ? '' : item.address}</div>
-                                        <br />
-                                      </div>
-                                      <div>
-                                        {item.realName === undefined ? '' : (
-                                          <div>
-                                            <div style={{ fontWeight: 600 }}><Icon type="user" />收货人</div>
-                                            <div style={{ fontWeight: 450, color: '#8e8989' }}>
-                                              {item.realName}
-                                            </div>
-                                          </div>
-                                        )}
-                                        <br />
-                                      </div>
-                                      <div>
-                                        {item.mobile === undefined ? '' : (
-                                          <div>
-                                            <div style={{ fontWeight: 600 }}><Icon type="mobile" />收货人电话</div>
-                                            <div style={{ fontWeight: 450, color: '#8e8989' }}>
-                                              {item.mobile}
-                                            </div>
-                                          </div>
-                                        )}
-                                        <br />
-                                      </div>
-                                    </Card>
-                                  </div>
-                                ) : ''}
+                                <div style={{ fontWeight: 450 }}>
+                                  <div style={{ fontWeight: 600 }}><Icon type="environment-o" />收货地址</div>
+                                  {item.province === undefined ? '' : item.province} {item.city === undefined ? '' : item.city} {item.area === undefined ? '' : item.area}
+                                </div>
+                                <div style={{ fontWeight: 450, color: '#8e8989' }}>{item.address === undefined ? '' : item.address}</div>
+                                <br />
                               </div>
-                            ))}
-                  />
-                </div>
+                              <div>
+                                {item.realName === undefined ? '' : (
+                                  <div>
+                                    <div style={{ fontWeight: 600 }}><Icon type="user" />收货人</div>
+                                    <div style={{ fontWeight: 450, color: '#8e8989' }}>
+                                      {item.realName}
+                                    </div>
+                                  </div>
+                                )}
+                                <br />
+                              </div>
+                              <div>
+                                {item.mobile === undefined ? '' : (
+                                  <div>
+                                    <div style={{ fontWeight: 600 }}><Icon type="mobile" />收货人电话</div>
+                                    <div style={{ fontWeight: 450, color: '#8e8989' }}>
+                                      {item.mobile}
+                                    </div>
+                                  </div>
+                                )}
+                                <br />
+                              </div>
+                            </Card>
+                          </div>
+                        ) : ''}
+                      </div>
                     )}
+                  />
+                </div>)
+              }
             </Card>
           </Col>
           <Col span={12}>
@@ -261,117 +259,116 @@ export default class BasicForms extends PureComponent {
                   label="认证姓名"
                 >
                   {getFieldDecorator('authName', {
-                            rules: [{
-                              required: true, message: '姓名不能为空',
-                            }],
-                            validateFirst: true,
-                            validateTrigger: 'onBlur',
-                            initialValue: auth === undefined ? '' : auth.authName,
-                          })(
-                            <Input
-                              placeholder="请输入认证姓名"
-                              prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                            />
-                          )}
+                    rules: [{
+                      required: true, message: '姓名不能为空',
+                    }],
+                    validateFirst: true,
+                    validateTrigger: 'onBlur',
+                    initialValue: auth === undefined ? '' : auth.authName,
+                  })(
+                    <Input
+                      placeholder="请输入认证姓名"
+                      prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                    />
+                  )}
                 </FormItem>
                 <FormItem
                   {...formItemLayout}
                   label="身份证号"
                 >
                   {getFieldDecorator('indentityCard', {
-                            rules: [
-                              { required: true, message: '身份证号不能为空' },
-                              { fieldname: 'indentityCard', required: true, pattern: /^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/, message: '身份证号格式错误！' },
-                            ],
-                            validateFirst: true,
-                            validateTrigger: 'onBlur',
-                            initialValue: auth === undefined ? '' : auth.indentityCard,
-                          })(
-                            <Input
-                              placeholder="请输入身份证号"
-                              prefix={<Icon type="idcard" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                            />
-                          )}
+                    rules: [
+                      { required: true, message: '身份证号不能为空' },
+                      { fieldname: 'indentityCard', required: true, pattern: /^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/, message: '身份证号格式错误！' },
+                    ],
+                    validateFirst: true,
+                    validateTrigger: 'onBlur',
+                    initialValue: auth === undefined ? '' : auth.indentityCard,
+                  })(
+                    <Input
+                      placeholder="请输入身份证号"
+                      prefix={<Icon type="idcard" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                    />
+                  )}
                 </FormItem>
                 <FormItem
                   {...formItemLayout}
                   label="身份证"
                 >
-                  {getFieldDecorator('goal', {
-                          })(
-                            <TextArea style={{ minHeight: 32 }} placeholder="" rows={4} />
-                          )}
+                  {getFieldDecorator('goal', {})(
+                    <TextArea style={{ minHeight: 32 }} placeholder="" rows={4} />
+                  )}
                 </FormItem>
                 <FormItem
                   {...formItemLayout}
                   label="联系手机"
                 >
                   {getFieldDecorator('mobile', {
-                            rules: [
-                              { fieldname: 'mobile', required: true, message: '联系手机不能为空' },
-                              { fieldname: 'mobile', required: true, pattern: /^1\d{10}$/, message: '手机号码格式错误！' },
-                            ],
-                            validateFirst: true,
-                            validateTrigger: 'onBlur',
-                            initialValue: auth === undefined ? '' : auth.mobile,
-                          })(
-                            <Input
-                              placeholder="请输入联系手机"
-                              prefix={<Icon type="mobile" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                            />
-                          )}
+                    rules: [
+                      { fieldname: 'mobile', required: true, message: '联系手机不能为空' },
+                      { fieldname: 'mobile', required: true, pattern: /^1\d{10}$/, message: '手机号码格式错误！' },
+                    ],
+                    validateFirst: true,
+                    validateTrigger: 'onBlur',
+                    initialValue: auth === undefined ? '' : auth.mobile,
+                  })(
+                    <Input
+                      placeholder="请输入联系手机"
+                      prefix={<Icon type="mobile" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                    />
+                  )}
                 </FormItem>
                 <FormItem
                   {...formItemLayout}
                   label="联系电话"
                 >
                   {getFieldDecorator('tel', {
-                            initialValue: auth === undefined ? '' : auth.tel,
-                          })(
-                            <Input
-                              placeholder="请输入联系电话"
-                              prefix={<Icon type="phone" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                            />
-                          )}
+                    initialValue: auth === undefined ? '' : auth.tel,
+                  })(
+                    <Input
+                      placeholder="请输入联系电话"
+                      prefix={<Icon type="phone" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                    />
+                  )}
                 </FormItem>
                 <FormItem
                   {...formItemLayout}
                   label="E-mail"
                 >
                   {getFieldDecorator('email', {
-                            initialValue: auth === undefined ? '' : auth.email,
-                          })(
-                            <Input
-                              placeholder="请输入E-mail"
-                              prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                            />
-                          )}
+                    initialValue: auth === undefined ? '' : auth.email,
+                  })(
+                    <Input
+                      placeholder="请输入E-mail"
+                      prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                    />
+                  )}
                 </FormItem>
                 <FormItem
                   {...formItemLayout}
                   label="QQ"
                 >
                   {getFieldDecorator('QQ', {
-                            initialValue: auth === undefined ? '' : auth.QQ,
-                          })(
-                            <Input
-                              placeholder="请输入QQ"
-                              prefix={<Icon type="qq" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                            />
-                          )}
+                    initialValue: auth === undefined ? '' : auth.QQ,
+                  })(
+                    <Input
+                      placeholder="请输入QQ"
+                      prefix={<Icon type="qq" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                    />
+                  )}
                 </FormItem>
                 <FormItem
                   {...formItemLayout}
                   label="微信"
                 >
                   {getFieldDecorator('wechat', {
-                            initialValue: auth === undefined ? '' : auth.wechat,
-                          })(
-                            <Input
-                              placeholder="请输入微信"
-                              prefix={<Icon type="wechat" style={{ color: 'rgba(0,0,0,.25)' }} />}
-                            />
-                          )}
+                    initialValue: auth === undefined ? '' : auth.wechat,
+                  })(
+                    <Input
+                      placeholder="请输入微信"
+                      prefix={<Icon type="wechat" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                    />
+                  )}
                 </FormItem>
                 <FormItem
                   {...formItemLayout}
@@ -379,9 +376,9 @@ export default class BasicForms extends PureComponent {
                 >
                   {getFieldDecorator('tag', {
                     initialValue: auth === undefined ? [] : auth.tag,
-                          })(
-                            <Select mode="tags" placeholder="请输入标签" prefix={<Icon type="tags" style={{ color: 'rgba(0,0,0,.25)' }} />} />
-                          )}
+                  })(
+                    <Select mode="tags" placeholder="请输入标签" prefix={<Icon type="tags" style={{ color: 'rgba(0,0,0,.25)' }} />} />
+                  )}
                 </FormItem>
                 <FormItem
                   {...formItemLayout}
@@ -391,7 +388,7 @@ export default class BasicForms extends PureComponent {
                     initialValue: auth === undefined ? '' : auth.remark,
                   })(
                     <TextArea style={{ minHeight: 32 }} placeholder="请输入备注" rows={4} prefix={<Icon type="tags" style={{ color: 'rgba(0,0,0,.25)' }} />} />
-                          )}
+                  )}
                 </FormItem>
                 <FormItem {...submitFormLayout} style={{ marginTop: 32 }}>
                   <Button type="primary" style={{ marginRight: 8 }}><Link to="/system/user">返回</Link></Button>
