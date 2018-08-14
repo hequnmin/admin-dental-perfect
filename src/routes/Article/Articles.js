@@ -29,7 +29,18 @@ export default class Articles extends PureComponent {
 
     const columns = [
       { title: '文章标题', dataIndex: 'title', key: 'title' },
-      { title: '文章内容', dataIndex: 'content', key: 'content' },
+      { title: '文章标题', dataIndex: 'subhead', key: 'subhead' },
+      { title: '文章摘要', dataIndex: 'summary', key: 'summary' },
+      {
+        title: '操作',
+        dataIndex: 'objectId',
+        key: 'objectId',
+        width: '15%',
+        render: val => (
+          <span>
+            <Link className={styles.linkArticle} to={`/article/article/${val}`}>编辑</Link>
+          </span>),
+      },
     ];
 
     const pagination = {
