@@ -19,6 +19,9 @@ export default {
   },
 
   effects: {
+    * trashArticle(_, {put}) {
+      yield put({type: 'emptyArticle'});
+    },
     * fetchArticles({ payload }, { call, put }) {
       const response = yield call(getArticles, payload);
       yield put({ type: 'queryArticles', payload: { ...response, query: payload } });
@@ -40,6 +43,12 @@ export default {
   },
 
   reducers: {
+    emptyArticle(state) {
+      return ({
+        ...state,
+        article: undefined,
+      });
+    },
     queryArticles(state, action) {
       return {
         ...state,
@@ -69,6 +78,9 @@ export default {
         const query = qs.parse(search, { ignoreQueryPrefix: true });
         if (pathname === '/article/articles') {
           dispatch({ type: 'fetchArticles', payload: query });
+        }
+        if (pathname === '/article/article') {
+          dispatch({ type: 'trashArticle' });
         }
         if (pathname.indexOf('/article/article/') >= 0 ) {
           const objectId = pathname.substring(pathname.lastIndexOf('/')+1);

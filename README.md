@@ -29,6 +29,20 @@ $ npm start
 * parse-dashboard-dental-perfect - [后端数据管理](https://parse-dashboard-dental-perfect.herokuapp.com)
 
 
+#### 开发规范
+
+* dva 开发规范
+
+|Method|Model/effects|Model/reduce|service|api / request|respon|
+|-----|-----|-----|-----|-----|------|
+|GET|fetchClassNames|queryClassNames|getClassNames|…/className|{results:[],count:0}|
+|GET|fetchClassName|queryClassName|getClassName|…/className/objectId|className object|
+|POST|storeClassName|appendClassName|postClassName|…/className|{objectId:’’,createAt:date}|
+|PUT|coverClassName|resetClassName|putClassName|…/className/objectId|{updateAt:date}|
+|DELETE|removeClassName|clearClassName|deleteClassName|…/className/objectId|[]|
+|DELETE|removeFile|clearFile|deleteFile|…/files/filename|[]|
+| |trashClassName|emptyClassName| | |详见article|
+
 
  
 

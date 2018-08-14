@@ -11,6 +11,7 @@ import FooterToolbar from '../../components/FooterToolbar';
 @Form.create()
 export default class Article extends React.PureComponent {
   state = {
+    article: undefined,
   };
 
   handleOK = (e) => {
@@ -47,11 +48,12 @@ export default class Article extends React.PureComponent {
   };
 
   handleCancel = () => {
-    // console.log('Cancel');
+    this.props.history.goBack();
   };
 
   render() {
-    const { form, article } = this.props;
+    const { form } = this.props;
+    const { article } = this.state;
     const { getFieldDecorator } = form;
 
     return (
