@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "precommit": "npm run lint-staged",
-    "start": "roadhog server",
+    "start": "cross-env ESLINT=none roadhog dev",
     "start:dev": "roadhog dev",
     "start:env": "cross-env ESLINT=none roadhog dev",
     "start:elint": "cross-env ESLINT=true roadhog dev",

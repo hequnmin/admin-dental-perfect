@@ -1,44 +1,41 @@
-const path = require('path');
+const path = require("path");
 
 export default {
-  entry: 'src/index.js',
+  entry: "src/index.js",
   extraBabelPlugins: [
     // 'transform-decorators-legacy',
-    ['import', { libraryName: 'antd', libraryDirectory: 'es', style: true }],
+    ["import", { libraryName: "antd", libraryDirectory: "es", style: true }]
   ],
   env: {
     development: {
-      extraBabelPlugins: ['dva-hmr'],
-    },
+      extraBabelPlugins: ["dva-hmr"]
+    }
   },
   alias: {
-    components: path.resolve(__dirname, 'src/components/'),
+    components: path.resolve(__dirname, "src/components/")
   },
   ignoreMomentLocale: true,
-  theme: './src/theme.js',
+  theme: "./src/theme.js",
   html: {
-    template: './src/index.ejs',
+    template: "./src/index.ejs"
   },
   disableDynamicImport: true,
-  publicPath: '/',
+  publicPath: "/",
   hash: true,
   proxy: {
-    '/api': {
+    "/api": {
       changeOrigin: true,
-      target: 'http://localhost:1338/',
-      pathRewrite: { '^/api': 'dental-perfect' },
-      // target: 'http://becheer.com:1338/',
-      // target: 'https://api.becheer.com.cn/',
+      target: "http://localhost:1338/",
+      pathRewrite: { "^/api": "dental-perfect" }
+      // target: 'http://localhost:1338/',
       // pathRewrite: { '^/api': 'parse' },
     },
-    '/mail': {
+    "/mail": {
       changeOrigin: true,
-      target: 'http://localhost:1338/',
-      pathRewrite: { '^/mail': 'dental-perfect/apps/dental-perfect' },
-      // target: 'http://becheer.com:1338/',
-      // target: 'https://api.becheer.com.cn/',
+      target: "http://localhost:1338/",
+      pathRewrite: { "^/mail": "dental-perfect/apps/dental-perfect" }
+      // target: 'http://localhost:1338/',
       // pathRewrite: { '^/mail': 'parse/apps/bee' },
-    },
-  },
-
+    }
+  }
 };
